@@ -1,3 +1,16 @@
+const puppeteer = require('puppeteer')
+async function html_to_pdf(html){
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage()
+  // We set the page content as the generated html by handlebars
+  await page.setContent(html)
+  // We use pdf function to generate the pdf in the same folder as this file.
+  const pdf = await page.pdf({ format: 'A4' ,printBackground:true,margin:false})
+  console.log(pdf)
+  await browser.close();
+  return pdf
+}
+
 exports.handler = async function http(req) {
 
   let html = `
@@ -22,14 +35,17 @@ exports.handler = async function http(req) {
 
   </body>
 </html>`
-
+const pdf = await html_to_pdf('<h1>ded</h1>')
+// console.log(pdf)
   return {
     headers: {
-      'content-type': 'text/html; charset=utf8',
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+      'content-type': 'application/pdf',
+      // 'content-disposition': 'attachment; filename=test.pdf'
     },
     statusCode: 200,
-    body: html
+
+    body: pdf.toString("base64"),
+    isBase64Encoded: true
   }
 }
 
