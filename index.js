@@ -1,7 +1,7 @@
 // const puppeteer = require('puppeteer')
 const chromium = require('chrome-aws-lambda')
 async function html_to_pdf(html){
-  const browser = browser = await chromium.puppeteer.launch({
+  const browser = await chromium.puppeteer.launch({
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath,
@@ -50,7 +50,7 @@ const pdf = await html_to_pdf('<h1>ded</h1>')
     },
     statusCode: 200,
 
-    body: pdf.toString("base64"),
+    body: pdf.toString('base64'),
     isBase64Encoded: true
   }
 }
