@@ -1,6 +1,12 @@
-const puppeteer = require('puppeteer')
+// const puppeteer = require('puppeteer')
+const chromium = require('chrome-aws-lambda')
 async function html_to_pdf(html){
-  const browser = await puppeteer.launch();
+  const browser = browser = await chromium.puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless
+  });
   const page = await browser.newPage()
   // We set the page content as the generated html by handlebars
   await page.setContent(html)

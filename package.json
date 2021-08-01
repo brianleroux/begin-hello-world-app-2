@@ -23,6 +23,7 @@
     "cross-env": "^7.0.3"
   },
   "dependencies": {
-    "puppeteer": "^10.1.0"
+    "chrome-aws-lambda": "^10.1.0",
+    "puppeteer-core": "^10.1.0"
   }
 }

@@ -4,11 +4,13 @@ specifiers:
   '@architect/functions': latest
   '@architect/sandbox': ^3.3.6
   '@begin/data': latest
+  chrome-aws-lambda: ^10.1.0
   cross-env: ^7.0.3
-  puppeteer: ^10.1.0
+  puppeteer-core: ^10.1.0
 
 dependencies:
-  puppeteer: 10.1.0
+  chrome-aws-lambda: 10.1.0_puppeteer-core@10.1.0
+  puppeteer-core: 10.1.0
 
 devDependencies:
   '@architect/functions': 4.0.0
@@ -387,6 +389,16 @@ packages:
 
   /chownr/1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
+    dev: false
+
+  /chrome-aws-lambda/10.1.0_puppeteer-core@10.1.0:
+    resolution: {integrity: sha512-NZQVf+J4kqG4sVhRm3WNmOfzY0OtTSm+S8rg77pwePa9RCYHzhnzRs8YvNI6L9tALIW6RpmefWiPURt3vURXcw==}
+    engines: {node: '>= 10.16'}
+    peerDependencies:
+      puppeteer-core: ^10.1.0
+    dependencies:
+      lambdafs: 2.0.3
+      puppeteer-core: 10.1.0
     dev: false
 
   /ci-info/2.0.0:
@@ -959,6 +971,14 @@ packages:
       json-buffer: 3.0.0
     dev: true
 
+  /lambdafs/2.0.3:
+    resolution: {integrity: sha512-5YWwZA/QKk09GdfcJ/ABVO+bpFoGlnTBa5jmyM8Kt9yIzl2lDDVBPLK+Aenq2UEcuDpqxXIYI5zLB7VZNepTrg==}
+    engines: {node: '>= 10.16'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - tar-fs
+
   /latest-version/5.1.0:
     resolution: {integrity: sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==}
     engines: {node: '>=8'}
@@ -1310,10 +1330,9 @@ packages:
       escape-goat: 2.1.1
     dev: true
 
-  /puppeteer/10.1.0:
-    resolution: {integrity: sha512-bsyDHbFBvbofZ63xqF7hMhuKBX1h4WsqFIAoh1GuHr/Y9cewh+EFNAOdqWSkQRHLiBU/MY6M+8PUnXXjAPtuSg==}
+  /puppeteer-core/10.1.0:
+    resolution: {integrity: sha512-x2yDSJI/PRiWhDqAt1jd4rhTotxwjwKzHLIIqD2MlJ+TmzGJfBY9snAGIVXJwkWfKJg+Ef5xupdK0EbHDqBpFw==}
     engines: {node: '>=10.18.1'}
-    requiresBuild: true
     dependencies:
       debug: 4.3.1
       devtools-protocol: 0.0.883894
