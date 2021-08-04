@@ -20,11 +20,6 @@
     "@architect/functions": "latest",
     "@architect/sandbox": "^3.3.6",
     "@begin/data": "latest",
-    "cross-env": "^7.0.3",
-    "puppeteer": "^10.1.0"
-  },
-  "dependencies": {
-    "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.1.0"
+    "cross-env": "^7.0.3"
   }
 }
